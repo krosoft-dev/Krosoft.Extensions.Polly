@@ -1,4 +1,5 @@
-﻿using Krosoft.Extensions.Polly.Models;
+﻿using System.Security.Cryptography;
+using Krosoft.Extensions.Polly.Models;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.CircuitBreaker;
@@ -20,14 +21,16 @@ public static class HttpPoliciesHelper
                                  {
                                      if (result == null)
                                      {
-                                         logger.LogWarning($"Service shutdown during {breakDuration} after {circuitBreakerPolicyConfig.RetryCount} failed retries.");
+                                         logger.LogWarning("Service shutdown during {BreakDuration} after {RetryCount} failed retries.",
+                                                           breakDuration, circuitBreakerPolicyConfig.RetryCount);
 
                                          throw new BrokenCircuitException("Service inoperative. Please try again later...");
                                      }
 
                                      if (result.Exception != null)
                                      {
-                                         logger.LogWarning($"Service shutdown during {breakDuration} after {circuitBreakerPolicyConfig.RetryCount} failed retries : {result.Result?.StatusCode} {result.Exception.Message}");
+                                         logger.LogWarning("Service shutdown during {BreakDuration} after {RetryCount} failed retries : {StatusCode} {Message}",
+                                                           breakDuration, circuitBreakerPolicyConfig.RetryCount, result.Result?.StatusCode, result.Exception.Message);
 
                                          throw new BrokenCircuitException($"Service inoperative. Please try again later : {result.Result?.StatusCode} {result.Exception.Message}", result.Exception);
                                      }
@@ -36,7 +39,8 @@ public static class HttpPoliciesHelper
                                      {
                                          var message = result.Result.Content.ReadAsStringAsync().Result;
 
-                                         logger.LogWarning($"Service shutdown during {breakDuration} after {circuitBreakerPolicyConfig.RetryCount} failed retries : {result.Result.StatusCode} {message}");
+                                         logger.LogWarning("Service shutdown during {BreakDuration} after {RetryCount} failed retries : {StatusCode} {Message}",
+                                                           breakDuration, circuitBreakerPolicyConfig.RetryCount, result.Result.StatusCode, message);
 
                                          throw new BrokenCircuitException($"Service inoperative. Please try again later : {result.Result.StatusCode} {message}");
                                      }
@@ -48,16 +52,18 @@ public static class HttpPoliciesHelper
     {
         return GetBaseBuilder()
             .WaitAndRetryAsync(retryPolicyConfig.RetryCount,
-                               retryAttempt => TimeSpan.FromSeconds(Math.Pow(retryPolicyConfig.BackoffPower, retryAttempt)) + TimeSpan.FromMilliseconds(new Random().Next(0, 100)),
+                               retryAttempt => TimeSpan.FromSeconds(Math.Pow(retryPolicyConfig.BackoffPower, retryAttempt)) + TimeSpan.FromMilliseconds(RandomNumberGenerator.GetInt32(0, 100)),
                                (result, timeSpan, retryCount, _) =>
                                {
                                    if (result.Result != null)
                                    {
-                                       logger.LogWarning($"Request failed with {result.Result.StatusCode}. Waiting {timeSpan} before next retry. Retry attempt {retryCount}");
+                                       logger.LogWarning("Request failed with {StatusCode}. Waiting {Delay} before next retry. Retry attempt {RetryCount}",
+                                                         result.Result.StatusCode, timeSpan, retryCount);
                                    }
                                    else
                                    {
-                                       logger.LogWarning($"Request failed because network failure. Waiting {timeSpan} before next retry. Retry attempt {retryCount}");
+                                       logger.LogWarning("Request failed because network failure. Waiting {Delay} before next retry. Retry attempt {RetryCount}",
+                                                         timeSpan, retryCount);
                                    }
                                });
     }
