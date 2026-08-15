@@ -1,6 +1,6 @@
 using System.Net;
-using Krosoft.Extensions.Polly.Extensions;
-using Krosoft.Extensions.Polly.Tests.Core;
+using Krosoft.Extensions.Resilience.Extensions;
+using Krosoft.Extensions.Resilience.Tests.Core;
 using Krosoft.Extensions.Testing;
 using Krosoft.Extensions.Testing.Extensions;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq.Protected;
 
-namespace Krosoft.Extensions.Polly.Tests.Extensions;
+namespace Krosoft.Extensions.Resilience.Tests.Extensions;
 
 [TestClass]
 public class HttpClientBuilderExtensionsTests : BaseTest

@@ -6,7 +6,7 @@
 		<PackageReference Include="Krosoft.Extensions.Testing" Version="2026.8.6.8866" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Krosoft.Extensions.Polly\Krosoft.Extensions.Polly.csproj" />
+		<ProjectReference Include="..\..\src\Krosoft.Extensions.Resilience\Krosoft.Extensions.Resilience.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="appsettings.json">

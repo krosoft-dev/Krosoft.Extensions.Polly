@@ -1,11 +1,11 @@
 ﻿using System.Security.Cryptography;
-using Krosoft.Extensions.Polly.Models;
+using Krosoft.Extensions.Resilience.Models;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.CircuitBreaker;
 using Polly.Extensions.Http;
 
-namespace Krosoft.Extensions.Polly.Helpers;
+namespace Krosoft.Extensions.Resilience.Helpers;
 
 public static class HttpPoliciesHelper
 {

@@ -1,6 +1,6 @@
 using Krosoft.Extensions.Core.Extensions;
 
-namespace Krosoft.Extensions.Polly.Tests.Core;
+namespace Krosoft.Extensions.Resilience.Tests.Core;
 
 public class TestHttpService
 {

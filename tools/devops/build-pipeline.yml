@@ -1,4 +1,4 @@
-name: Build 'Krosoft.Extensions.Polly' - $(Date:yyyy.MM.dd).$(BuildID)
+name: Build 'Krosoft.Extensions.Resilience' - $(Date:yyyy.MM.dd).$(BuildID)
 
 trigger:
   - main

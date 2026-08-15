@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Krosoft.Extensions.Polly.Tests.Core;
+namespace Krosoft.Extensions.Resilience.Tests.Core;
 
 public class Todo
 {

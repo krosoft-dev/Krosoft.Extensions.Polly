@@ -1,4 +1,4 @@
-﻿namespace Krosoft.Extensions.Polly.Models;
+﻿namespace Krosoft.Extensions.Resilience.Models;
 
 public record PolicyConfig : ICircuitBreakerPolicyConfig, IRetryPolicyConfig
 {
