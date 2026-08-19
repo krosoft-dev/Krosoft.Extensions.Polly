@@ -1,8 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Krosoft.Extensions.Polly/Krosoft.Extensions.Polly.csproj" />
-  </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/Krosoft.Extensions.Polly.Tests/Krosoft.Extensions.Polly.Tests.csproj" />
-  </Folder>
-</Solution>

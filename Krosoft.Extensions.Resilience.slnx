@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Krosoft.Extensions.Resilience/Krosoft.Extensions.Resilience.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Krosoft.Extensions.Resilience.Tests/Krosoft.Extensions.Resilience.Tests.csproj" />
+  </Folder>
+</Solution>

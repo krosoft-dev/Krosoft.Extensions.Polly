@@ -1,10 +1,10 @@
-﻿using Krosoft.Extensions.Polly.Helpers;
-using Krosoft.Extensions.Polly.Models;
+﻿using Krosoft.Extensions.Resilience.Helpers;
+using Krosoft.Extensions.Resilience.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Krosoft.Extensions.Polly.Extensions;
+namespace Krosoft.Extensions.Resilience.Extensions;
 
 public static class HttpClientBuilderExtensions
 {

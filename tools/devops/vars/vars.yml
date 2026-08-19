@@ -16,5 +16,5 @@ variables:
   #SonarCloud
   sonarCloudEndpoint: "SonarCloud"
   sonarCloudOrganization: "krosoft-dev"
-  sonarCloudProjectKey: "krosoft-dev_Krosoft.Extensions.Polly"
-  sonarCloudProjectName: "Krosoft.Extensions.Polly"
+  sonarCloudProjectKey: "krosoft-dev_Krosoft.Extensions.Resilience"
+  sonarCloudProjectName: "Krosoft.Extensions.Resilience"
