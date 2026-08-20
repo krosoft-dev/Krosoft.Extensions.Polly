@@ -1,4 +1,4 @@
-name: Nuget 'Krosoft.Extensions.Polly' - $(Date:yyyy.MM.dd).$(BuildID)
+name: Nuget 'Krosoft.Extensions.Resilience' - $(Date:yyyy.MM.dd).$(BuildID)
 
 pr: none
 
@@ -22,4 +22,4 @@ extends:
   template: tools/devops/templates/pipelines/nuget-template.yml@Krosoft.Extensions
   parameters:
     packages:
-      - "Krosoft.Extensions.Polly"
+      - "Krosoft.Extensions.Resilience"
